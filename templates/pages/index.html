@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog</title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"> <!-- Include your CSS file here -->
+</head>
+<body>
+    <header>
+        <h1>My Blog</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/blog">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% if name == 'shyraz'%}
+               name = {{name | capfirst}} 
+        {% else %}
+            <h1> not found</h1>
+        {% endif %}
+       
+        <section class="blog-post">
+            <h2>Blog Post Title</h2>
+            <p>Posted on <span class="date">[Date]</span> by <span class="author">[{{name}}]</span></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis metus sed nisl congue commodo.</p>
+            <a href="/blog/post1">Read More</a>
+        </section>
+        <span><a href="{%url 'nav'%}"> nav </a></span>
+        <section class="blog-post">
+            <h2>Blog Post Title 2</h2>
+            <p>Posted on <span class="date">[Date]</span> by <span class="author">[Author]</span></p>
+            <p>Phasellus vel libero eget elit pulvinar elementum a nec velit. Sed in massa id augue mollis venenatis.</p>
+            <a href="/blog/post2">Read More</a>
+            <img src="{% static "img/Bricks.png" %}" alt="">
+        </section>
+        
+        <!-- Repeat the above section for additional blog posts -->
+
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 My Blog. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+{% block mine %}
+{% endblock mine %}
